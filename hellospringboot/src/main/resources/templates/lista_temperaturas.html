@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width" />
+<title>Últimas previsões do tempo</title>
+<link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"
+	rel="stylesheet" />
+<link th:href="@{/webjars/bootstrap/css/bootstrap-theme.min.css}"
+	rel="stylesheet" />
+</head>
+<body>
+	<div class="panel panel-default" style="margin: 10px">
+		<div class="panel-heading">
+			<h1 class="panel-title">Previsão do tempo / Dia 30 de março - 03 de abril</h1>
+		</div>
+		<div class="panel-body">
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Dia da Semana</th>
+						<th>Temperatura Mínima</th>
+						<th>Temperatura Máxima</th>
+						<th>Descrição Adicional</th>
+
+						<th>Umidade</th>
+						<th>Data e hora</th>
+						<th>Latitude</th>
+						<th>Longitude</th>
+
+					</tr>
+				</thead>
+				
+				<tbody>
+					<tr th:each="temperatura : ${temperaturas}">
+						<td th:text="${temperatura.nomeSemana}"></td>
+						<td th:text="${temperatura.tempMin}"></td>
+						<td th:text="${temperatura.tempMax}"></td>
+						<td th:text="${temperatura.descricao}"></td>
+
+						<td th:text="${temperatura.umidade}"></td>
+						<td th:text="${temperatura.dataHora}"></td>
+						<td th:text="${temperatura.latitude}"></td>
+						<td th:text="${temperatura.longitude}"></td>
+
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</body>
+</html>
